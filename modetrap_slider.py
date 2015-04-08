@@ -161,6 +161,15 @@ for i in np.arange(nbeads):
     savec[i].on_changed(update)
     swvec[i].on_changed(update)
 
+resetax = axes([0.025, 0.100, 0.075, 0.06])
+button = Button(resetax, 'Reset', color=axcolor, hovercolor='0.975')
+def reset(event):
+    for i in np.arange(nbeads):
+        slvec[i].reset()
+        savec[i].reset()
+        swvec[i].reset()
+button.on_clicked(reset)
+
 rax = axes([0.025, 0.3, 0.12, 0.50], axisbg=axcolor, aspect='equal')
 blabs = []
 for i in np.arange(1,ncases+1):
